@@ -63,7 +63,3 @@ app.post('/player', async (req, res) => {
     res.send("API error");
   }
 });
-
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
-});
