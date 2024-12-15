@@ -26,8 +26,16 @@ async function initializeDB() {
   await client.connect();
   const db = client.db(dbName);
   collection = db.collection(collectionName);
+  console.log("Connected to MongoDB");
+  
+  // Start the server only after DB connection is established
+  app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
+  });
 }
+
 initializeDB().catch(console.error);
+
 
 app.get('/', (req, res) => {
   res.render('index');
